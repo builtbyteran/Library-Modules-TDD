@@ -1,1 +1,7 @@
-// write your code here to make the tests pass
+let Library = () => {
+  return {
+    addBook: function () {},
+  };
+};
+
+let Book = () => {};
