@@ -3,7 +3,9 @@ let Library = () => {
   const checkOutBook = (book) => {
     book.setAttribute('checkedOut', true);
   };
-  const returnBook = () => {};
+  const returnBook = (book) => {
+    book.setAttribute('checkedOut', false);
+  };
   return {
     addBook,
     checkOutBook,
