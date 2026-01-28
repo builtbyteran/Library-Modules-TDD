@@ -1,10 +1,17 @@
 let Library = () => {
-  const addBook = () => {};
+  const archive = [];
+  const addBook = (book) => {
+    archive.push(book);
+  };
   const checkOutBook = (book) => {
-    book.setAttribute('checkedOut', true);
+    if (archive.includes(book)) {
+      book.setAttribute('checkedOut', true);
+    }
   };
   const returnBook = (book) => {
-    book.setAttribute('checkedOut', false);
+    if (archive.includes(book)) {
+      book.setAttribute('checkedOut', false);
+    }
   };
   return {
     addBook,
@@ -13,15 +20,19 @@ let Library = () => {
   };
 };
 
-let Book = () => {
+let Book = (title, author) => {
   const attributes = {
     checkedOut: false,
+    title: title,
+    author: author,
   };
   const getAttribute = (prop) => {
     return attributes[prop];
   };
   const setAttribute = (prop, value) => {
-    attributes[prop] = value;
+    if (attributes.hasOwnProperty(prop)) {
+      attributes[prop] = value;
+    }
   };
   return {
     getAttribute,
